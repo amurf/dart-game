@@ -1,0 +1,10 @@
+name: gamejam
+version: 0.0.1
+author: Ashley Murphy <ash@strategicdata.com.au>
+description: Testing
+
+dependencies:
+  dart_config: any
+  game_loop:
+    git: https://github.com/johnmccutchan/game_loop.git
+
