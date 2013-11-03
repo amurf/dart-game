@@ -14,16 +14,21 @@ class Sprite {
       this.image = new ImageElement(src: src, width: width, height: height);
     }
 
-    animate(currentTime) { 
+    void animate(currentTime) { 
       if ( this.currentFrame == this.totalFrames ) {
           this.currentFrame = 0;
       }
       this.currentFrame++;
       this.lastAnimationTime = currentTime;
     }
+    
+    void draw(context, x, y) {
+        context.drawImageScaledFromSource(image, animationX(), animationY(), width, height, x, y, width, height);
+    }
 
     num animationX() => this.currentFrame * this.width;
-    num animationY() => this.currentFrame * this.height;
+    // todo: sort this y animation out
+    num animationY() => 0 * this.height;
     bool readyToAnimate(num currentTime) => currentTime > lastAnimationTime+animationSpeed;
  
 }
