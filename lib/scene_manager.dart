@@ -6,9 +6,10 @@ class SceneManager {
   Scene currentScene;
   String currentSceneName;
 
-  SceneManager() {
+  // Some scenes will require player object
+  SceneManager(player) {
     scenes = new Map();
-    scenes["Testing"]    = new TestingScene();
+    scenes["Testing"]    = new TestingScene(player);
     scenes["TestingTwo"] = new TestingSceneTwo();
     changeScene("Testing");
   }
