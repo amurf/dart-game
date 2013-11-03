@@ -14,6 +14,7 @@ class Player {
                                    totalFrames: 3,
                                 animationSpeed: 0.1);
     }
-
+    
+    void draw(context) => sprite.draw(context, x, y);
     num moveX() => this.x += baseMovementSpeed + (baseMovementSpeed*sprite.animationSpeed);
 }
