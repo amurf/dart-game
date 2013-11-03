@@ -10,7 +10,7 @@ class SceneManager {
   SceneManager(player) {
     scenes = new Map();
     scenes["Testing"]    = new TestingScene(player);
-    scenes["TestingTwo"] = new TestingSceneTwo();
+    scenes["TestingTwo"] = new TestingSceneTwo(player);
     changeScene("Testing");
   }
 

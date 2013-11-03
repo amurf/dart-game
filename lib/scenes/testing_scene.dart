@@ -11,7 +11,7 @@ class TestingScene implements Scene {
         player.animate(gameLoop.gameTime);
     }
     // How to swap scenes on the fly
-    if ( gameLoop.frame > 20000 ) {
+    if ( gameLoop.frame % 471 == 0 ) {
       gameLoop.changeScene("TestingTwo");
     }
   }
