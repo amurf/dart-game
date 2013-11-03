@@ -3,12 +3,12 @@ part of scenes;
 class TestingScene implements Scene {
   Player player;
 
-  TestingScene(this.player); // this scene requires a player
+  TestingScene(this.player); // this scene requires a player obj
 
   GameLoopUpdateFunction onUpdate(GameLoop gameLoop) {
-    if ( gameLoop.keyboard.isDown(Keyboard.RIGHT) && player.sprite.readyToAnimate(gameLoop.gameTime)) {
+    if ( gameLoop.keyboard.isDown(Keyboard.RIGHT) && player.readyToAnimate(gameLoop.gameTime)) {
         player.moveX();
-        player.sprite.animate(gameLoop.gameTime);
+        player.animate(gameLoop.gameTime);
     }
     // How to swap scenes on the fly
     if ( gameLoop.frame > 20000 ) {

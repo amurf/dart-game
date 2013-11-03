@@ -15,6 +15,11 @@ class Player {
                                 animationSpeed: 0.1);
     }
     
-    void draw(context) => sprite.draw(context, x, y);
     num moveX() => this.x += baseMovementSpeed + (baseMovementSpeed*sprite.animationSpeed);
+    
+    // Chain methods to sprite class
+    void readyToAnimate(currentTime) => sprite.readyToAnimate(currentTime);
+    void animate(currentTime)        => sprite.animate(currentTime);
+    void draw(context)               => sprite.draw(context, x, y);
+
 }
