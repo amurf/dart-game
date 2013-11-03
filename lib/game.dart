@@ -1,17 +1,15 @@
 import 'scene_manager.dart';
+import 'player.dart';
 import 'package:game_loop/game_loop_html.dart';
 
 class Game extends GameLoopHtml {
   Map config;
-  num x = 150;
-  num sprite_x = 0;
-  num scale_x  = 1;
-  num last_key_press = 0;
-  num last_key_press_2 = 0;
+  Player player;
   SceneManager sceneManager;
 
   Game(this.config, element) : super(element) {
-    sceneManager = new SceneManager();
+    this.player       = new Player();
+    this.sceneManager = new SceneManager(this.player);
   }
 
   startGameLoop() {
