@@ -1,11 +1,13 @@
 import 'sprite.dart';
+import 'keymap.dart';
 
 class Player { 
+    final num baseMovementSpeed = 5;
+    
     num x = 0;
     num y = 0;
     Sprite sprite;
-
-    final num baseMovementSpeed = 10;
+    KeyMap keyMap;
 
     Player() { 
       this.sprite = new Sprite("spritesheet.png", 
@@ -13,13 +15,32 @@ class Player {
                                         height: 64, 
                                    totalFrames: 3,
                                 animationSpeed: 0.1);
+      this.keyMap = new KeyMap(this);
+    }
+   
+    void checkKeyStatus(GameLoop gameLoop) {
+      keyMap.checkKeyStatus(gameLoop);
+    }
+
+
+    num moveX(GameLoop gameLoop) {
+      this.x += baseMovementSpeed + (baseMovementSpeed*sprite.animationSpeed);
+      this.animate(gameLoop);
     }
     
-    num moveX() => this.x += baseMovementSpeed + (baseMovementSpeed*sprite.animationSpeed);
-    
+    num moonwalk(GameLoop gameLoop) {
+      this.x -= baseMovementSpeed + (baseMovementSpeed*sprite.animationSpeed);
+      this.animate(gameLoop);
+    }
+
     // Chain methods to sprite class
     void readyToAnimate(currentTime) => sprite.readyToAnimate(currentTime);
-    void animate(currentTime)        => sprite.animate(currentTime);
     void draw(context)               => sprite.draw(context, x, y);
+    void animate(GameLoop gameLoop) {
+      num currentTime = gameLoop.gameTime;
+      if (sprite.readyToAnimate(currentTime)) {
+        sprite.animate(currentTime);
+      }
+    }
 
 }
