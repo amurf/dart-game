@@ -6,14 +6,11 @@ class TestingSceneTwo implements Scene {
   TestingSceneTwo(this.player); // this scene requires a player obj
 
   GameLoopUpdateFunction onUpdate(GameLoop gameLoop) {
-    if ( gameLoop.keyboard.isDown(Keyboard.RIGHT) && player.readyToAnimate(gameLoop.gameTime)) {
-        player.moveX();
-        player.animate(gameLoop.gameTime);
-    }
+    player.checkKeyStatus(gameLoop);
     // How to swap scenes on the fly
-    if ( gameLoop.frame % 211 == 0) {
-      gameLoop.changeScene("Testing");
-    }
+    //if ( gameLoop.frame % 471 == 0 ) {
+    //  gameLoop.changeScene("TestingTwo");
+    //}
   }
 
   GameLoopRenderFunction onRender(GameLoop gameLoop) {
@@ -21,7 +18,7 @@ class TestingSceneTwo implements Scene {
     context.clearRect(0,0,gameLoop.config['width'],gameLoop.config['height']);
     context.font = "30px sans-serif";
 
-    context.fillText("Scene 2", 0, 100, 100);
+    context.fillText("Scene 1", 0, 100, 100);
     player.draw(context);
   }
 

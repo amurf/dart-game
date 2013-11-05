@@ -9,9 +9,9 @@ class SceneManager {
   // Some scenes will require player object
   SceneManager(player) {
     scenes = new Map();
-    scenes["Testing"]    = new TestingScene(player);
-    scenes["TestingTwo"] = new TestingSceneTwo(player);
-    changeScene("Testing");
+    scenes["MainMenu"]         = new MainMenu();
+    scenes["TestingSceneTwo"]  = new TestingSceneTwo(player);
+    changeScene("MainMenu");
   }
 
   changeScene(sceneName) {
