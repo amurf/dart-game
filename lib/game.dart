@@ -17,6 +17,7 @@ class Game extends GameLoopHtml {
     onRender = sceneManager.currentScene.onRender;
     start();
   }
+
   changeScene(String sceneName) {
     sceneManager.changeScene(sceneName);
     onUpdate = sceneManager.currentScene.onUpdate;
