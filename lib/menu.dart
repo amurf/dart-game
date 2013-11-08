@@ -13,7 +13,7 @@ class Menu {
 
   void onClickListener(Game gameLoop) {
       gameLoop.element.onClick.listen((e) {
-        var rect        = gameLoop.element.getBoundingClientRect();
+        var rect         = gameLoop.element.getBoundingClientRect();
         var clickedPoint = new Point(e.clientX - rect.left, e.clientY - rect.top);
         this.clickCheck(clickedPoint, gameLoop);
       });
