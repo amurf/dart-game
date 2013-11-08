@@ -4,6 +4,7 @@ import 'package:game_loop/game_loop_html.dart';
 import 'dart:html';
 
 import 'menu.dart';
+import 'menu_item.dart';
 import 'scene.dart';
 import 'sprite.dart';
 
