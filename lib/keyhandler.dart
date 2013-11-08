@@ -1,3 +1,6 @@
+import 'game.dart';
+import 'player.dart';
+
 class KeyHandler {
   num keyCode;
   num lastPressed = 0;
@@ -6,12 +9,12 @@ class KeyHandler {
 
   KeyHandler(this.keyCode, this.keyDelay, this.keyFunction);
 
-  void doKeyFunction(GameLoop gameLoop, Player player) {
+  void doKeyFunction(Game gameLoop, Player player) {
     if (this.isReady(gameLoop))
       this.keyFunction(gameLoop, player);
       this.lastPressed = gameLoop.gameTime;
   }
 
-  bool isReady(GameLoop gameLoop) => gameLoop.gameTime > keyDelay + lastPressed;
+  bool isReady(Game gameLoop) => gameLoop.gameTime > keyDelay + lastPressed;
 
 }

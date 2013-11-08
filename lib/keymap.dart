@@ -27,7 +27,7 @@ class KeyMap {
     this.keyMap[keyCode] = new KeyHandler(keyCode, keyDelay, keyFunction);
   }
   
-  void checkKeyStatus(GameLoop gameLoop) {
+  void checkKeyStatus(GameLoopHtml gameLoop) {
     this.keyMap.forEach((key, val) {
       if (isKeyDown(key, gameLoop)) {
         val.doKeyFunction(gameLoop, player);
@@ -35,7 +35,7 @@ class KeyMap {
     });
   }
 
-  bool isKeyDown(num key, GameLoop gameLoop) => gameLoop.keyboard.isDown(key);
+  bool isKeyDown(num key, GameLoopHtml gameLoop) => gameLoop.keyboard.isDown(key);
 
 
 }

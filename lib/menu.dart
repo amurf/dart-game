@@ -1,15 +1,17 @@
+import 'game.dart';
 import 'menu_item.dart';
 import 'dart:math';
+import 'dart:html';
 
 class Menu {
   List<MenuItem> items;
-  num itemPadding = 40;
-  num fontSize    = 20;
-  num width       = 500;
+  num itemPadding;
+  num fontSize;
+  num width;
 
-  Menu(this.items, {this.itemPadding, this.fontSize, this.width});
+  Menu(this.items, {this.itemPadding: 40, this.fontSize: 20, this.width: 500});
 
-  void onClickListener(GameLoop gameLoop) {
+  void onClickListener(Game gameLoop) {
       gameLoop.element.onClick.listen((e) {
         var rect        = gameLoop.element.getBoundingClientRect();
         var clickedPoint = new Point(e.clientX - rect.left, e.clientY - rect.top);
@@ -18,7 +20,7 @@ class Menu {
   }
 
 
-  void draw(CanvasRenderingContext context) {
+  void draw(CanvasRenderingContext2D context) {
     context.font = fontSize.toString()+"pt sans-serif";
     for (num x = 0; x < items.length; x++) {
       context.save();
@@ -29,17 +31,17 @@ class Menu {
 
   }
 
-  void clickCheck(Point clickedPoint, GameLoop gameLoop) {
+  void clickCheck(Point clickedPoint, Game gameLoop) {
     for (num x = 0; x < items.length; x++) {
-      var stringWidth = stringWidth(items[x].label, gameLoop);
-      var stringRect  = new Rectangle(this.width, itemPadding * (x+1), stringWidth, fontSize);
+      var strWidth = stringWidth(items[x].label, gameLoop);
+      var stringRect  = new Rectangle(this.width, itemPadding * (x+1), strWidth, fontSize);
       if (detectCollision(stringRect, clickedPoint)) {
         items[x].onClick(gameLoop);
       }
     }
   }
 
-  num stringWidth(String str, GameLoop gameLoop) => gameLoop.element.context2D.measureText(str).width;
+  num stringWidth(String str, Game gameLoop) => gameLoop.element.context2D.measureText(str).width;
 
   bool detectCollision(Rectangle rect, Point mouseClick) =>
     ( mouseClick.x > rect.left && mouseClick.x < rect.right && mouseClick.y >= rect.top && mouseClick.y <= rect.bottom );

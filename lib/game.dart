@@ -1,6 +1,6 @@
+import 'package:game_loop/game_loop_html.dart';
 import 'scene_manager.dart';
 import 'player.dart';
-import 'package:game_loop/game_loop_html.dart';
 
 class Game extends GameLoopHtml {
   Map config;

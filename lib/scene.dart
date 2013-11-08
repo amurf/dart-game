@@ -1,20 +1,17 @@
-import 'package:game_loop/game_loop_html.dart';
+import 'game.dart';
 
-typedef void GameLoopUpdateFunction(GameLoop gameLoop);
-typedef void GameLoopRenderFunction(GameLoop gameLoop);
-typedef void GameLoopResizeFunction(GameLoop gameLoop);
-typedef void GameLoopFullscreenChangeFunction(GameLoop gameLoop);
-typedef void GameLoopPointerLockChangeFunction(GameLoop gameLoop);
-typedef void GameLoopTouchEventFunction(GameLoop gameLoop, GameLoopTouch touch);
+typedef void GameUpdateFunction(Game gameLoop);
+typedef void GameRenderFunction(Game gameLoop);
+typedef void GameResizeFunction(Game gameLoop);
+typedef void GameFullscreenChangeFunction(Game gameLoop);
+typedef void GamePointerLockChangeFunction(Game gameLoop);
 
 
 class Scene {
-  GameLoopUpdateFunction onUpdate;
-  GameLoopRenderFunction onRender;
-  GameLoopResizeFunction onResize;
-  GameLoopFullscreenChangeFunction onFullscreenChange;
-  GameLoopPointerLockChangeFunction onPointerLockChange;
-  GameLoopTouchEventFunction onTouchStart;
-  GameLoopTouchEventFunction onTouchEnd;
+  GameUpdateFunction onUpdate;
+  GameRenderFunction onRender;
+  GameResizeFunction onResize;
+  GameFullscreenChangeFunction onFullscreenChange;
+  GamePointerLockChangeFunction onPointerLockChange;
 }
 

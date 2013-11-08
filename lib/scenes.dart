@@ -1,8 +1,10 @@
 library scenes;
 
-import 'package:game_loop/game_loop_html.dart';
 import 'dart:html';
 
+import 'package:game_loop/game_loop_html.dart';
+import 'game.dart';
+import 'player.dart';
 import 'menu.dart';
 import 'menu_item.dart';
 import 'scene.dart';

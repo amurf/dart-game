@@ -3,7 +3,7 @@ part of scenes;
 class MainMenu implements Scene {
   Menu menu;
 
-  MainMenu(GameLoop gameLoop) {
+  MainMenu(Game gameLoop) {
     this.menu = new Menu([
         new MenuItem("Start",   onClick: start, onMouseOver: startDown),
         new MenuItem("Options", onClick: (gameLoop) => print("OPTIONZ")),
@@ -12,19 +12,19 @@ class MainMenu implements Scene {
     this.menu.onClickListener(gameLoop);
   }
 
-  GameLoopUpdateFunction onUpdate(GameLoop gameLoop) { }
+  GameUpdateFunction onUpdate(Game gameLoop) { }
 
-  GameLoopRenderFunction onRender(GameLoop gameLoop) {
-    CanvasRenderingContext context = gameLoop.element.context2D;
+  GameRenderFunction onRender(Game gameLoop) {
+    CanvasRenderingContext2D context = gameLoop.element.context2D;
     context.clearRect(0,0,gameLoop.config['width'],gameLoop.config['height']);
     menu.draw(context);
   }
 
-  Function start(GameLoop gameLoop) {
+  Function start(Game gameLoop) {
     gameLoop.changeScene("TestingSceneTwo");
   }
 
-  Function startDown(GameLoop gameLoop) {
+  Function startDown(Game gameLoop) {
     this.menu.items[0].color = "red";
   }
 }

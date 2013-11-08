@@ -1,3 +1,4 @@
+import 'game.dart';
 import 'scene.dart';
 import 'scenes.dart';
 
@@ -7,7 +8,7 @@ class SceneManager {
   String currentSceneName;
 
   // Some scenes will require player object
-  SceneManager(GameLoop gameLoop) {
+  SceneManager(Game gameLoop) {
     scenes = new Map();
     scenes["MainMenu"]         = new MainMenu(gameLoop);
     scenes["TestingSceneTwo"]  = new TestingSceneTwo(gameLoop.player);
