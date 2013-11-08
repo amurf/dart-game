@@ -7,10 +7,10 @@ class SceneManager {
   String currentSceneName;
 
   // Some scenes will require player object
-  SceneManager(player) {
+  SceneManager(GameLoop gameLoop) {
     scenes = new Map();
-    scenes["MainMenu"]         = new MainMenu();
-    scenes["TestingSceneTwo"]  = new TestingSceneTwo(player);
+    scenes["MainMenu"]         = new MainMenu(gameLoop);
+    scenes["TestingSceneTwo"]  = new TestingSceneTwo(gameLoop.player);
     changeScene("MainMenu");
   }
 
