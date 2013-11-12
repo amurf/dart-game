@@ -3,20 +3,20 @@ import 'sprite.dart';
 import 'keymap.dart';
 
 class Player {
-    final num baseMovementSpeed = 5;
+    num momentum = 5;
 
     num x = 0;
-    num y = 0;
+    num y = 20;
     Sprite sprite;
     KeyMap keyMap;
 
     Player() {
-      this.sprite = new Sprite("spritesheet.png",
+      sprite = new Sprite("images/spritesheet.png",
                                          width: 64,
                                         height: 64,
                                    totalFrames: 3,
                                 animationSpeed: 0.1);
-      this.keyMap = new KeyMap(this);
+      keyMap = new KeyMap(this);
     }
 
     void checkKeyStatus(Game gameLoop) {
@@ -25,13 +25,16 @@ class Player {
 
 
     num moveX(Game gameLoop) {
-      this.x += baseMovementSpeed + (baseMovementSpeed*sprite.animationSpeed);
-      this.animate(gameLoop);
+      x += momentum + (momentum*sprite.animationSpeed);
+      animate(gameLoop);
     }
 
     num moonwalk(Game gameLoop) {
-      this.x -= baseMovementSpeed + (baseMovementSpeed*sprite.animationSpeed);
-      this.animate(gameLoop);
+      x -= momentum + (momentum*sprite.animationSpeed);
+      if ( momentum != 5 ) {
+        momentum = 5;
+      }
+      animate(gameLoop);
     }
 
     // Chain methods to sprite class
