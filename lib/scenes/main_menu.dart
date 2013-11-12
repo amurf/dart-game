@@ -4,12 +4,12 @@ class MainMenu implements Scene {
   Menu menu;
 
   MainMenu(Game gameLoop) {
-    this.menu = new Menu([
+    menu = new Menu([
         new MenuItem("Start",   onClick: start, onMouseOver: startDown),
         new MenuItem("Options", onClick: (gameLoop) => print("OPTIONZ")),
         new MenuItem("Exit",    onClick: (gameLoop) => print("EXIT!")),
     ]);
-    this.menu.onClickListener(gameLoop);
+    menu.onClickListener(gameLoop);
   }
 
   GameUpdateFunction onUpdate(Game gameLoop) { }
@@ -25,6 +25,6 @@ class MainMenu implements Scene {
   }
 
   Function startDown(Game gameLoop) {
-    this.menu.items[0].color = "red";
+    menu.items[0].color = "red";
   }
 }
