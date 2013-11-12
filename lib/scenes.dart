@@ -9,6 +9,7 @@ import 'menu.dart';
 import 'menu_item.dart';
 import 'scene.dart';
 import 'sprite.dart';
+import 'block.dart';
 
 part 'scenes/main_menu.dart';
 part 'scenes/testing_scene_two.dart';
