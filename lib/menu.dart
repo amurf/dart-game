@@ -15,7 +15,7 @@ class Menu {
       gameLoop.element.onClick.listen((e) {
         var rect         = gameLoop.element.getBoundingClientRect();
         var clickedPoint = new Point(e.clientX - rect.left, e.clientY - rect.top);
-        this.clickCheck(clickedPoint, gameLoop);
+        clickCheck(clickedPoint, gameLoop);
       });
   }
 
@@ -34,7 +34,7 @@ class Menu {
   void clickCheck(Point clickedPoint, Game gameLoop) {
     for (num x = 0; x < items.length; x++) {
       var strWidth = stringWidth(items[x].label, gameLoop);
-      var stringRect  = new Rectangle(this.width, itemPadding * (x+1), strWidth, fontSize);
+      var stringRect  = new Rectangle(width, itemPadding * (x+1), strWidth, fontSize);
       if (detectCollision(stringRect, clickedPoint)) {
         items[x].onClick(gameLoop);
       }
