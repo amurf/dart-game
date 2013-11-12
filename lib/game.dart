@@ -8,8 +8,8 @@ class Game extends GameLoopHtml {
   SceneManager sceneManager;
 
   Game(this.config, element) : super(element) {
-    this.player       = new Player();
-    this.sceneManager = new SceneManager(this);
+    player       = new Player();
+    sceneManager = new SceneManager(this);
   }
 
   startGameLoop() {
